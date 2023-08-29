@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include "DegreesOfTwo.h"
 
 int main() {
   try {
@@ -19,13 +20,17 @@ int main() {
     std::vector<size_t> vec(nNumbers);
     for (size_t i = 0; i < nNumbers; i++) {
       fil >> vec[i];
+      if (!IsDegreeOfTwo(vec[i])) {
+        std::cout << "Error! The number " << vec[i] << " is not degree of two!\n";
+        return 4;
+      }
     }
     fil.close();
     sort(vec.begin(), vec.end());
-    for (auto i : vec) {
+    /*for (auto i : vec) {
       std::cout << i << " ";
     }
-    std::cout << std::endl;
+    std::cout << std::endl;*/
     return 0;
   }
   catch (const std::exception& e) {

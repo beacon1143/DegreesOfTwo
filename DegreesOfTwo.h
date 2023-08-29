@@ -1,0 +1,1 @@
+bool IsDegreeOfTwo(size_t n);
